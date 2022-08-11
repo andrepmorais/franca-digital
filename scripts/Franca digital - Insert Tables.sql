@@ -5,6 +5,7 @@ use db_curso;
 
 /* Inserindo a tabela "categoria" */
 START TRANSACTION;
+  DELETE FROM `item_pedido`;
   DELETE FROM `produto`;
   DELETE FROM `categoria`;
   INSERT INTO `categoria` (`id_categoria`, `ds_categoria`) VALUES (10, 'TELEFONIA');
@@ -14,6 +15,7 @@ START TRANSACTION;
 
 /* Inserindo a tabela "cliente" */
 START TRANSACTION;
+  DELETE FROM `pedido`;
   DELETE FROM `cliente`;
   INSERT INTO `cliente` (`id_cliente`, `nm_cliente`, `flag_ouro`) VALUES (5000, 'ANDRE', 1);
   INSERT INTO `cliente` (`id_cliente`, `nm_cliente`, `flag_ouro`) VALUES (5001, 'JOSE ANTONIO', 0);

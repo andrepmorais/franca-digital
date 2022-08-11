@@ -1,0 +1,36 @@
+ // Modelo de Pedidos de Venda
+
+Table cliente as cliente {
+  id_cliente integer [pk, increment] // auto-increment
+  nm_cliente varchar(100)
+  flag_ouro boolean
+ }
+
+Table pedido as pedido {
+  id_pedido integer [pk, increment] // auto-increment
+  dt_pedido datetime
+  id_cliente integer
+ }
+
+Table item_pedido as itemPed {
+  id_pedido integer [pk]
+  id_produto integer [pk]
+  quantidade integer
+  vr_unitario decimal(15,2)
+ }
+
+Table produto as produto {
+  id_produto integer [pk, increment] // auto-increment
+  ds_produto varchar(100)
+  id_categoria integer
+ }
+
+Table categoria as categoria  {
+  id_categoria integer [pk, increment] // auto-increment
+  ds_categoria varchar(100)
+ }
+
+Ref: cliente.id_cliente < pedido.id_cliente
+Ref: itemPed.id_pedido > pedido.id_pedido
+Ref: produto.id_categoria > categoria.id_categoria
+Ref: itemPed.id_produto > produto.id_produto
